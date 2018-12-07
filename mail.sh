@@ -3,7 +3,7 @@
 FROM="your-gmail-address"
 AUTH="your-gmail-username"
 PASS="your-gmail-password"
-FROMNAME="Your Router"
+FROMNAME="Your VPN"
 TO="your-email-address"
 
 if [ -z "$1" ]; then
@@ -14,9 +14,9 @@ fi
 MSG=/tmp/e-mail.txt
 
 echo "From: $FROMNAME <$FROM>" > $MSG
-echo -e 'Subject: Message from router\n' >> $MSG
+echo -e 'Subject: Message from OpenVPN\n' >> $MSG
 echo -e $1 >> $MSG
-echo -e '\n---- \nYour friendly router' >> $MSG
+echo -e '\n---- \nYour friendly VPN' >> $MSG
 
 cat $MSG | sendmail -H 'exec openssl s_client -quiet -tls1_2 -connect smtp.gmail.com:465' \
     -f"$FROM" -au"$AUTH" -ap"$PASS" $TO > /dev/null 2>&1
