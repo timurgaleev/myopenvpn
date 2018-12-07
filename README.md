@@ -11,6 +11,6 @@ You need change mail.sh file the following ites FROM, AUTH, PASS, FROMNAME, TO
 
 You can check the log by
 ~~~
-status /var/log/openvpn/status.log # status log
-log /var/log/openvpn/serv.log # serv log
+/var/log/openvpn/status.log # status log
+/var/log/openvpn/serv.log # serv log
 
